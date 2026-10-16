@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+    <title>Box autour de Lyon</title>
+
+    <meta charset= "utf-8" />
+
+    <meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+
+    <link rel= "stylesheet" href= "./css/leaflet.css" />
+    <link rel= "stylesheet" href= "./css/style.css" />
+
+</head>
+
+<body>
+
+    <h3>Box autour de Lyon</h3>
+
+    <div id= "map"></div>
+
+
+    <script type="importmap">
+		{
+			"imports": {
+				"leaflet": "https://cdn.jsdelivr.net/npm/leaflet@2.0.0-alpha.1/dist/leaflet.js"
+			},
+			"integrity": {
+				"https://cdn.jsdelivr.net/npm/leaflet@2.0.0-alpha.1/dist/leaflet.js": "sha256-gj5JhNAaMi6LCs+jVFOk8sXDe1sWSS2Zlc87m+trLiQ="
+			}
+		}
+	</script>
+
+<script type="module">
+	import {LeafletMap, TileLayer, Marker, Icon} from 'leaflet';
+
+    const map = new L.Map('map').setView([45.7437, 4.8585], 11);
+
+	const tiles = new TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	const IconeRouge = new Icon({
+		iconUrl: './images/icone_rouge.png',
+		iconSize: [24, 44],
+		iconAnchor: [12, 44],
+		popupAnchor: [0, -22]
+	});
+
+	const IconeBleue = new Icon({
+		iconUrl: './images/icone_bleue.png',
+		iconSize: [24, 44],
+		iconAnchor: [12, 44],
+		popupAnchor: [0, -22]
+	});
+
+    const IconeViolet = new Icon({
+		iconUrl: './images/icone_violette.png',
+		iconSize: [24, 44],
+		iconAnchor: [12, 44],
+		popupAnchor: [0, -22]
+	});
+
+	const Shurgard1 = new Marker([45.74030303955078,4.850226879119873], {icon: IconeRouge}).bindPopup('<a hre="https://www.shurgard.com/fr-fr/garde-meuble/lyon/lyon-jean-mace">Shurgard Jean-Macé</a><br/>1,5 m² : 55,00 €/mois').addTo(map);
+	const Shurgard2 = new Marker([45.7344649,4.869507], {icon: IconeRouge}).bindPopup('<a hre="https://www.shurgard.com/fr-fr/garde-meuble/lyon/lyon-etats-unis">Shurgard Etats-Unis</a><br/> 1 m²  : 45,00 €/mois').addTo(map);
+	const Shurgard3 = new Marker([45.770042419433594,4.800882816314697], {icon: IconeRouge}).bindPopup('<a hre="https://www.shurgard.com/fr-fr/garde-meuble/lyon/lyon-vaise">Shurgard Vaise</a><br/>1 m² : 44,00 €/mois').addTo(map);
+	const Shurgard4 = new Marker([45.7292511,4.8460687], {icon: IconeRouge}).bindPopup('<a hre="https://www.shurgard.com/fr-fr/garde-meuble/lyon/lyon-vaise">Shurgard Gerland</a><br/>1 m²  : 27,00 €/mois').addTo(map);
+	const Shurgard5 = new Marker([45.7850032,4.8537391], {icon: IconeRouge}).bindPopup('<a hre="https://www.shurgard.com/fr-fr/garde-meuble/lyon/lyon-cite-internationale">Shurgard Gerland</a><br/>1,5 m²  : 34,00 €/mois').addTo(map);
+	
+	const Resotainer1 = new Marker([45.7225472,4.9413612], {icon: IconeBleue}).bindPopup('<a hre="https://www.resotainer.fr/lyon-est-bron-aeroport">Resotainer Bron aéroport</a><br/>3,3m² : 32,90€/mois pendant 3 mois, puis 55€/mois').addTo(map);
+	const Resotainer2 = new Marker([45.7193457,4.8318124], {icon: IconeBleue}).bindPopup('<a hre="https://www.resotainer.fr/lyon-centre-peh">Resotainer Gerland</a><br/>3,3m² : 32,90€/mois pendant 2 mois, puis 55€/mois').addTo(map);
+	const Resotainer3 = new Marker([45.7715729,5.0172426], {icon: IconeBleue}).bindPopup('<a hre="https://www.resotainer.fr/lyon-est-meyzieu">Resotainer Meyzieu</a><br/>1,5 m² : 41 €/mois<br/>3,3 m² : 32,90€/mois pendant 2 mois, puis 50€/mois').addTo(map);
+	const Resotainer4 = new Marker([45.62616729736328,4.814342498779297], {icon: IconeBleue}).bindPopup('<a hre="https://www.resotainer.fr/lyon-sud-serezin">Resotainer Serezin</a><br/>3,3 m² : 67 €/mois').addTo(map);
+	
+	const Annexx1 = new Marker([45.7262739,4.9741125], {icon: IconeViolet}).bindPopup('<a hre="https://www.annexx.com/box-garde-meuble/rhone-69/lyon/">Annexx Chassieu</a><br/>1m² : 18,20€/mois pendant 2 mois, puis 26€/mois').addTo(map);
+	const Annexx2 = new Marker([45.70435611790812,4.829938391077344], {icon: IconeViolet}).bindPopup('<a hre="https://www.annexx.com/box-garde-meuble/rhone-69/lyon/">Annexx Pierre Bénite</a><br/>1 m² : 17,50€/mois pendant 2 mois, puis 25€/mois').addTo(map);
+
+
+</script>
+
+</body>
+
+</html>
